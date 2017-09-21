@@ -198,7 +198,7 @@ Function main
 Does main things
  */
 func main() {
-	port := os.Getenv("port")
+	port := os.Getenv("PORT")
 	http.HandleFunc("/projectinfo/v1/", urlHandler)
 	//getContributor("https://api.github.com/repos/apache/camel/contributors")
 	//getLanguage("https://api.github.com/repos/apache/camel/languages")
