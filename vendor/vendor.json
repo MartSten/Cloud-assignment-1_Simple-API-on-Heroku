@@ -4,6 +4,7 @@
 	"package": [],
 	"rootPath": "github.com/oblig1",
 	"heroku": {
-	"goVersion": "go1.9"
+	"goVersion": "go1.9",
+	"install": ["./..."],
 	}
 }
