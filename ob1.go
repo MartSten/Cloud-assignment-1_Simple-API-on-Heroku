@@ -204,6 +204,6 @@ func main() {
 	//getLanguage("https://api.github.com/repos/apache/camel/languages")
 	fmt.Println(port)
 	//fmt.Println(os.Environ())
-	http.ListenAndServe(":"+port, nil)
+	http.ListenAndServe(port, nil)
 
 }
