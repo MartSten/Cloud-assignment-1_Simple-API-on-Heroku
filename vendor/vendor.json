@@ -2,5 +2,8 @@
 	"comment": "",
 	"ignore": "test",
 	"package": [],
-	"rootPath": "github.com/oblig1"
+	"rootPath": "github.com/oblig1",
+	"heroku": {
+	"goVersion": "go1.9"
+	}
 }
