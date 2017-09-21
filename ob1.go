@@ -202,8 +202,12 @@ func main() {
 	http.HandleFunc("/projectinfo/v1/", urlHandler)
 	//getContributor("https://api.github.com/repos/apache/camel/contributors")
 	//getLanguage("https://api.github.com/repos/apache/camel/languages")
-	fmt.Println(port)
+	//fmt.Println(port)
 	//fmt.Println(os.Environ())
-	http.ListenAndServe(port, nil)
+	if port == "" {
+		port = ":8080"
+		fmt.Println("No port detected. Port has been set to 8080")
+	}
+	http.ListenAndServe(":"+port, nil)
 
 }
