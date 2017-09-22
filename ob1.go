@@ -23,7 +23,7 @@ func urlHandler(w http.ResponseWriter, r *http.Request){
 	//Function variables
 	var apiContributor string	//The url for the contributors api
 	var apiLanguage string	//The url for the languages api
-	var url string = string(r.URL.Path)	//gets the url fom r (the http request) and casts it to string
+	var url = string(r.URL.Path)	//gets the url fom r (the http request) and casts it to string
 
 	var projectData = strings.Split(url, "/")	//gets the name and owner of a github project
 	if len(projectData) != 6 {	//if the incorrect url is requested: send error.
@@ -206,7 +206,7 @@ func main() {
 	//framed code from: https://www.youtube.com/watch?v=IWT2vCbTURs&t=332s
 	//---------------------------------------------------------------------
 	if port == "" {
-		port = ":8080"
+		port = "8080"
 		fmt.Println("No port detected. Port has been set to 8080")
 	}
 	//---------------------------------------------------------------------
