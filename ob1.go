@@ -39,12 +39,15 @@ func urlHandler(w http.ResponseWriter, r *http.Request){
 	theProject := projectData[5]	//project name
 	var topCom string	//top contributor
 	var amountOfComs int	//top contributor's amount of commits
+	var badRequest bool		//used when there is a bad request
 
 	theContributors := getContributor(apiContributor)
 	if len(theContributors) < 1 {	//if there were errors getting the contributor data
 		fmt.Println("Could not find the correct api (contributor) data. Is the url correct?")
 		topCom = "No committers found"
+		//http.Error(w, "Did not find any contributors", 400)
 		amountOfComs = 0
+		badRequest = true
 	} else {	//If there were no errors getting the contributor data
 		topCom = theContributors[0].Committer
 		amountOfComs = theContributors[0].Commits
@@ -54,18 +57,24 @@ func urlHandler(w http.ResponseWriter, r *http.Request){
 	if len(theLanguages.Language) < 1{
 		fmt.Println("Could not find the correct api (language) data. Is the url correct?")
 		theLanguages.Language = append(theLanguages.Language, "No languages fund")
+		//http.Error(w, "Did not find any languages", 400)
+		badRequest = true
 	}
 
 	//Struct for sending the final json payload
-	theResponse := finalStruct{
-		Project: theProject,
-		Owner: pOwner,
-		Committer: topCom,
-		Commits: amountOfComs,
-		Language: theLanguages.Language,
-	}
+	if badRequest == true {
+		http.Error(w, "Bad request", 400)
+	}else {
+		theResponse := finalStruct{
+			Project:   theProject,
+			Owner:     pOwner,
+			Committer: topCom,
+			Commits:   amountOfComs,
+			Language:  theLanguages.Language,
+		}
 
-	json.NewEncoder(w).Encode(theResponse)
+		json.NewEncoder(w).Encode(theResponse)
+	}
 
 }
 

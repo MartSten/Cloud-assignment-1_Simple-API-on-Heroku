@@ -1,1 +1,1 @@
-web: oblig1 
+web: ob1 
