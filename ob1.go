@@ -45,7 +45,6 @@ func urlHandler(w http.ResponseWriter, r *http.Request){
 	if len(theContributors) < 1 {	//if there were errors getting the contributor data
 		fmt.Println("Could not find the correct api (contributor) data. Is the url correct?")
 		topCom = "No committers found"
-		//http.Error(w, "Did not find any contributors", 400)
 		amountOfComs = 0
 		badRequest = true
 	} else {	//If there were no errors getting the contributor data
@@ -57,7 +56,6 @@ func urlHandler(w http.ResponseWriter, r *http.Request){
 	if len(theLanguages.Language) < 1{
 		fmt.Println("Could not find the correct api (language) data. Is the url correct?")
 		theLanguages.Language = append(theLanguages.Language, "No languages fund")
-		//http.Error(w, "Did not find any languages", 400)
 		badRequest = true
 	}
 
