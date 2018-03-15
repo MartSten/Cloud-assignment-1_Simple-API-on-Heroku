@@ -7,4 +7,5 @@
 	"goVersion": "go1.9",
 	"install": ["./..."]
 	}
+	
 }
