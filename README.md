@@ -3,10 +3,10 @@ assignment 1 for cloudTech
 
 This was a project for the cloudtechnologies course at NTNU.
 
-The application is an API that fetches some information about a github project using the github API and a user provided url.
+The application is an API that fetches some information about a github project using the github API and a user provided url. The information is shown as a json object in the browser.
 
 
-The application is currently running on Heroku!
+### The application is currently running on Heroku!
 
 You can test it here: https://fierce-temple-17877.herokuapp.com/projectinfo/v1/github.com/MartSten/ob1
 
